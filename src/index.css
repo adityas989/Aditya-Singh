@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Colors */
+  --color-background: #0a0a0a;
+  --color-accent: #3b82f6;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Custom Animations */
+  --animate-slow-drift: drift 20s ease-in-out infinite;
+
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -20px); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white antialiased selection:bg-accent/30;
+  }
+}
+
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% -20%, #1e293b 0%, #0a0a0a 80%);
+}
+
+.glow-orb {
+  @apply absolute rounded-full blur-[120px] opacity-20 animate-slow-drift;
+}
