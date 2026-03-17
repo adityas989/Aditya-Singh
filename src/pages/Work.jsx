@@ -15,6 +15,7 @@ const Work = () => {
       link: "#",
       github: "https://github.com/adityas989/Omni-Analyst",
       type: "AI System",
+      status: "completed",
       problem: ( 
         <>
           Standard RAG systems often fail on technical documents where context is buried in <strong>schematics and complex tables</strong>, leading to 'knowledge gaps.'
@@ -48,6 +49,7 @@ const Work = () => {
       link: "#", // your streamlit deployed link
       github: "https://github.com/adityas989/DimenX", 
       type: "AI System",
+      status: "completed",
       problem: ( 
         <>
           Generating 3D models from 2D images is challenging because spatial depth and geometry are not explicitly available, leading to <strong>loss of structural information</strong>
@@ -72,6 +74,68 @@ const Work = () => {
       ]
     },
     {
+      title: "SmartPrep AI",
+      desc: "Autonomous study architect that transforms raw syllabi into structured, multimodal learning paths.",
+      tags: ["NLP", "LangGraph", "Web Scraping"],
+      features: ["Recursive Topic-Tree generation", "Automated resource curation"],
+      link: "#", 
+      github: "#",
+      type: "AI System",
+      status: "In progress",
+      problem: (
+        <>
+          Students often face <strong>information overload</strong> when mapping academic syllabi to web resources, leading to inefficient study sessions and missed core concepts.
+        </>
+      ),
+      breakthrough: (
+        <>
+          I am developing a <strong>Recursive Knowledge Graph</strong> using LangGraph that decomposes complex subjects into atomic topics and validates scraped content against academic benchmarks.
+        </>
+      ),
+      metrics: (
+        <>
+          Targeting a <strong>92% alignment accuracy</strong> between generated topic trees and official university curriculum standards.
+        </>
+      ),
+      diagram: [
+        { type: "input", label: "Syllabus Upload" },
+        { type: "process", label: "Agentic Decomposition" },
+        { type: "process", label: "Verified Scraping" },
+        { type: "output", label: "Knowledge Map" }
+      ]
+    },
+    {
+      title: "Unified Job Intelligence",
+      desc: "A cross-sector job aggregator using LLMs to bridge the gap between fragmented public and private employment data.",
+      tags: ["FastAPI", "Vector Search", "Automation"],
+      features: ["Cross-portal data normalization", "Semantic job-matching engine"],
+      link: "#",
+      github: "#",
+      type: "AI System",
+      status: "In Progress",
+      problem: (
+        <>
+          Employment data is trapped in <strong>siloed architectures</strong> (government vs. private), making it difficult for candidates to find a holistic view of the market.
+        </>
+      ),
+      breakthrough: (
+        <>
+          I am building a <strong>Universal Schema Translator</strong> that uses LLMs to normalize inconsistent job descriptions into a unified vector space for high-precision matching.
+        </>
+      ),
+      metrics: (
+        <>
+          Aimed at reducing search friction by <strong>50%</strong> through the aggregation of over 50+ disparate job portals into one real-time stream.
+        </>
+      ),
+      diagram: [
+        { type: "input", label: "Multi-Source Feed" },
+        { type: "process", label: "LLM Normalization" },
+        { type: "process", label: "Vector Indexing" },
+        { type: "output", label: "Matching API" }
+      ]
+    },
+    {
       title: "Sign Language Interpretation",
       desc: "Machine Learning model that predicts hand gestures.",
       tags: ["Computer Vision","Flask", "API", "React"],
@@ -79,6 +143,7 @@ const Work = () => {
       link: "#",
       github: "https://github.com/adityas989/Sign-Language-Interpreter",
       type: "Integration",
+      status: "completed",
       problem: (
         <>Using videos call and other media is difficult for those who can not speak or listen</>
       ),
@@ -145,6 +210,9 @@ export const ProjectCard = ({ project, index }) => (
         <div className="flex gap-3">
           <a href={project.github} className="text-slate-400 hover:text-white z-10 transition-colors"><Github size={18} /></a>
           <a href={project.link} className="text-slate-400 hover:text-white z-10 transition-colors"><ExternalLink size={18} /></a>
+          <span className={`px-2 py-0.5 ${project.status === 'completed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-orange-500/10 text-orange-400'} text-[10px] font-bold uppercase rounded border border-white/10`}>
+            {project.status}
+          </span>
         </div>
       </div>
 

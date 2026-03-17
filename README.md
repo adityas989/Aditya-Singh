@@ -1,16 +1,49 @@
-# React + Vite
+# 🤖 AI Engineer Portfolio | 2026 Edition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A high-fidelity, interactive portfolio built with **React 19**, **Vite 8**, and **Tailwind CSS v4**. This project serves as a technical showcase of my work in **Generative AI**, **RAG Pipelines**, and **3D Voxel Reconstruction**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🧠 The Engineering Philosophy: "Proof of Thought" (PoT)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Unlike standard portfolios that merely list features, this project implements a **Proof of Thought** section for every project. This documents:
+- **The Challenge:** Technical bottlenecks identified (e.g., RAG hallucinations in technical schematics).
+- **The Innovation:** The architectural decision (e.g., Multimodal Indexing using Gemini 1.5 Flash).
+- **The Result:** Quantitative improvements (e.g., 35% reduction in hallucination rates).
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend Architecture
+- **Framework:** React 19 (Functional Components & Hooks)
+- **Styling:** Tailwind CSS v4 (Utilizing new config-free engine & glassmorphism)
+- **Animations:** Framer Motion (Orchestrated stagger effects & modal transitions)
+- **Icons:** Lucide React
+
+### AI & Backend (Project Highlights)
+- **Models:** Gemini 1.5 Flash (Multimodal Analysis)
+- **Vector DB:** ChromaDB (Semantic Retrieval)
+- **Frameworks:** LangChain, FastAPI, PyTorch
+
+## 📂 Featured Projects
+
+### 1. Omni-Analyst (Solved)
+Multimodal RAG system for technical document analysis.
+* **Problem:** Standard OCR loses context in diagrams.
+* **Solution:** Vision-to-Text preprocessing layer.
+
+### 2. DimenX (Solved)
+Voxel-based 3D reconstruction from 2D images.
+* **Architecture:** Encoder-Decoder trained on Pix3D dataset.
+
+### 3. SmartExam Prep (In-Development)
+Autonomous study material curation via recursive syllabus mapping.
+* **Current Focus:** LangGraph-driven agentic scraping.
+
+### 4. Unified Job Intelligence (In-Development)
+Aggregating and standardizing public/private job data into a unified schema.
+
+<hr>
+
+## Aditya Singh | AI Engineer <br>LinkedIn • Portfolio
+<hr>
