@@ -8,21 +8,27 @@ import Footer from '../components/Footer';
 const Home = () => {
     const featuredProjects = [
         {
-      title: "Omni-Analyst",
-      desc: "Multimodal RAG system analyzing technical documents using Gemini 1.5 Flash and ChromaDB.",
-      tags: ["Generative AI", "Python", "React"],
-      link: "#",
-      github: "#",
-      type: "AI System"
-    },
-    {
-      title: "Unified Job Intel",
-      desc: "AI-powered job aggregator with resume parsing and matching engines.",
-      tags: ["FastAPI", "PostgreSQL", "React"],
-      link: "#",
-      github: "#",
-      type: "Full-Stack"
-    },
+          title: "Omni-Analyst",
+          desc: "Multimodal RAG system analyzing technical documents using Gemini 1.5 Flash and ChromaDB.",
+          tags: ["Generative AI", "Python", "LLMs"],
+          features: ["Multimodal data processing","Real-time RAG pipeline"],
+          link: "#",
+          github: "https://github.com/adityas989/Omni-Analyst",
+          type: "AI System",
+        },
+        {
+          title: "DimenX",
+          desc: "AI system that generates 3D models from images using deep learning and voxel reconstruction.",
+          tags: ["PyTorch", "Streamlit", "Computer Vision", "3D AI"],
+          features: [
+            "Image-to-3D voxel generation",
+            "Marching Cubes mesh conversion",
+            "Interactive 3D visualization"
+          ],
+          link: "#", // your streamlit deployed link
+          github: "https://github.com/adityas989/DimenX", 
+          type: "AI System",
+        },
     ]
   return (
     <div className="flex flex-col gap-32">

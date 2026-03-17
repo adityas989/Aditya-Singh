@@ -10,27 +10,90 @@ const Work = () => {
     {
       title: "Omni-Analyst",
       desc: "Multimodal RAG system analyzing technical documents using Gemini 1.5 Flash and ChromaDB.",
-      tags: ["Generative AI", "Python", "React"],
+      tags: ["Generative AI", "Python", "LLMs"],
+      features: ["Multimodal data processing","Real-time RAG pipeline"],
       link: "#",
-      github: "#",
-      type: "AI System"
+      github: "https://github.com/adityas989/Omni-Analyst",
+      type: "AI System",
+      problem: ( 
+        <>
+          Standard RAG systems often fail on technical documents where context is buried in <strong>schematics and complex tables</strong>, leading to 'knowledge gaps.'
+        </>
+      ),
+      breakthrough: ( 
+        <>
+          I implemented <strong>Multimodal Indexing</strong> using Gemini 1.5 Flash to convert visuals into semantic descriptions before ingestion into ChromaDB.
+        </>
+      ),
+      metrics: ( 
+        <>
+          Reduced RAGAS-measured hallucinations by <strong>35%</strong> and improved retrieval recall for technical queries from 62% to <strong>88%</strong>.
+        </>
+      ),
+       diagram: [
+        { type: "input", label: "Doc Ingestion" },
+        { type: "process", label: "Gemini Analysis" },
+        { type: "output", label: "Vector DB" }
+      ]
     },
     {
-      title: "Unified Job Intel",
-      desc: "AI-powered job aggregator with resume parsing and matching engines.",
-      tags: ["FastAPI", "PostgreSQL", "React"],
-      link: "#",
-      github: "#",
-      type: "Full-Stack"
+      title: "DimenX",
+      desc: "AI system that generates 3D models from images using deep learning and voxel reconstruction.",
+      tags: ["PyTorch", "Streamlit", "Computer Vision", "3D AI"],
+      features: [
+        "Image-to-3D voxel generation",
+        "Marching Cubes mesh conversion",
+        "Interactive 3D visualization"
+      ],
+      link: "#", // your streamlit deployed link
+      github: "https://github.com/adityas989/DimenX", 
+      type: "AI System",
+      problem: ( 
+        <>
+          Generating 3D models from 2D images is challenging because spatial depth and geometry are not explicitly available, leading to <strong>loss of structural information</strong>
+        </>
+      ),
+      breakthrough: ( 
+        <>
+          I built an <strong>Image-to-Voxel Encoder–Decoder architecture</strong> trained on Pix3D, converting images into latent representations and reconstructing 3D shapes using voxel grids and Marching Cubes.
+        </>
+      ),
+      metrics: ( 
+        <>
+          Achieved <strong>IoU of ~0.46</strong> on 32³ voxel resolution with consistent convergence, demonstrating strong structural learning in early-stage training.
+        </>
+      ),
+      diagram: [
+        { type: "input", label: "Image Input" },
+        { type: "process", label: "Encoder" },
+        { type: "process", label: "Latent Space" },
+        { type: "process", label: "Voxel Decoder" },
+        { type: "output", label: "3D Mesh" }
+      ]
     },
     {
-      title: "Tripo3D Integration",
-      desc: "Streamlit app for real-time 3D model generation from text/image prompts.",
-      tags: ["3D Modeling", "API", "Streamlit"],
+      title: "Sign Language Interpretation",
+      desc: "Machine Learning model that predicts hand gestures.",
+      tags: ["Computer Vision","Flask", "API", "React"],
+      features: ["Simple API to apply anywhere","Real-time Sign Language interpretation"],
       link: "#",
-      github: "#",
-      type: "Integration"
-    }
+      github: "https://github.com/adityas989/Sign-Language-Interpreter",
+      type: "Integration",
+      problem: (
+        <>Using videos call and other media is difficult for those who can not speak or listen</>
+      ),
+      breakthrough: (
+        <>We built a software that helps in <strong>real time sign interpretation</strong> to make easy for deaf or mute people to integrate in tech integrated socity</>
+      ),
+      metrics: "",
+      diagram: [
+        { type: "input", label: "Image/video Input" },
+        { type: "process", label: "Flask API" },
+        { type: "process", label: "Prediction Model" },
+        { type: "process", label: "Response" },
+        { type: "output", label: "Predicted Sign" }
+      ]
+    },
   ];
 
   return (
@@ -80,8 +143,8 @@ export const ProjectCard = ({ project, index }) => (
           {project.type}
         </span>
         <div className="flex gap-3">
-          <a href={project.github} className="text-slate-400 hover:text-white transition-colors"><Github size={18} /></a>
-          <a href={project.link} className="text-slate-400 hover:text-white transition-colors"><ExternalLink size={18} /></a>
+          <a href={project.github} className="text-slate-400 hover:text-white z-10 transition-colors"><Github size={18} /></a>
+          <a href={project.link} className="text-slate-400 hover:text-white z-10 transition-colors"><ExternalLink size={18} /></a>
         </div>
       </div>
 
@@ -138,19 +201,19 @@ const ProjectModal = ({ project, close }) => (
           </div>
 
           <p className="text-slate-400 leading-relaxed">
-            {project.desc} This project focuses on high-efficiency data retrieval and 
-            modern UI implementation using React.
+            {project.desc}
           </p>
 
           <div className="space-y-4">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider">Key Features</h4>
             <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-accent" /> Multimodal data processing
-              </li>
-              <li className="flex items-center gap-2 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-accent" /> Real-time RAG pipeline
-              </li>
+              {
+                project.features.map(feature => (
+                  <li className="flex items-center gap-2 text-sm text-slate-300">
+                    <CheckCircle2 size={16} className="text-accent" /> {feature}
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
@@ -159,65 +222,92 @@ const ProjectModal = ({ project, close }) => (
               Live Demo <ExternalLink size={16} />
             </button>
             <button className="p-3 bg-white/5 border border-white/10 text-white rounded-xl hover:bg-white/10">
-              <Github size={20} />
+              <a href={project.github} className="text-slate-400 hover:text-white transition-colors"><Github size={20} /></a>
             </button>
           </div>
-          <ProofOfThought/>
+          <ProofOfThought project={project}/>
+          
+          
         </div>
       </div>
     </motion.div>
   </div>
 );
 
-const ProofOfThought = () => {
+const Diagram = ({ steps }) => {
+  return (
+    <div className="mt-8 p-4 bg-black/40 rounded-2xl flex items-center justify-around border border-white/5 flex-wrap gap-2">
+      {steps.map((step, index) => (
+        <React.Fragment key={index}>
+          
+          <div
+            className={`text-center px-4 py-2 rounded-lg ${
+              step.type === "process"
+                ? "border border-accent/30"
+                : ""
+            }`}
+          >
+            <p
+              className={`${
+                step.type === "input" || step.type === "output"
+                  ? "text-[10px] text-slate-500 uppercase"
+                  : "text-xs text-white"
+              }`}
+            >
+              {step.label}
+            </p>
+
+            {(step.type === "input" || step.type === "output") && (
+              <div className="h-1 w-full bg-accent/20 mt-1" />
+            )}
+          </div>
+
+          {index !== steps.length - 1 && (
+            <div className="text-slate-600">→</div>
+          )}
+
+        </React.Fragment>
+      ))}
+    </div>
+  );
+};
+
+const ProofOfThought = ({project}) => {
   return (
     <div className="mt-12 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-2 h-8 bg-accent rounded-full" />
-        <h3 className="text-xl font-bold text-white tracking-tight">Proof of Thought: Omni-Analyst</h3>
+        <h3 className="text-xl font-bold text-white tracking-tight">Proof of Thought: {project.title}</h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
         <div className="space-y-2">
           <h4 className="text-accent font-bold uppercase text-[10px] tracking-widest">The Problem</h4>
           <p className="text-slate-400 leading-relaxed">
-            Standard RAG systems often fail on technical documents where context is buried in <strong>schematics and complex tables</strong>, leading to "knowledge gaps."
+            {project.problem}
           </p>
         </div>
 
         <div className="space-y-2">
           <h4 className="text-purple-400 font-bold uppercase text-[10px] tracking-widest">The Breakthrough</h4>
           <p className="text-slate-400 leading-relaxed">
-            I implemented <strong>Multimodal Indexing</strong> using Gemini 1.5 Flash to convert visuals into semantic descriptions before ingestion into ChromaDB.
+            {project.breakthrough}
           </p>
         </div>
 
         <div className="space-y-2">
           <h4 className="text-emerald-400 font-bold uppercase text-[10px] tracking-widest">The Metrics</h4>
           <p className="text-slate-400 leading-relaxed">
-            Reduced RAGAS-measured hallucinations by <strong>35%</strong> and improved retrieval recall for technical queries from 62% to <strong>88%</strong>.
+            {project.metrics}
           </p>
         </div>
       </div>
 
       {/* Mini Architecture Diagram (CSS only) */}
-      <div className="mt-8 p-4 bg-black/40 rounded-2xl flex items-center justify-around border border-white/5">
-        <div className="text-center px-4">
-          <p className="text-[10px] text-slate-500 uppercase">Doc Ingestion</p>
-          <div className="h-1 w-full bg-accent/20 mt-1" />
-        </div>
-        <div className="text-slate-600">→</div>
-        <div className="text-center px-4 border border-accent/30 rounded-lg py-2">
-          <p className="text-xs text-white">Gemini 1.5 Analysis</p>
-        </div>
-        <div className="text-slate-600">→</div>
-        <div className="text-center px-4">
-          <p className="text-[10px] text-slate-500 uppercase">Vector Store</p>
-          <div className="h-1 w-full bg-accent/20 mt-1" />
-        </div>
-      </div>
+      <Diagram steps={project.diagram} />
     </div>
   );
 };
+
 
 export default Work;
