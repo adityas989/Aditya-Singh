@@ -12,25 +12,29 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const mail = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 grid place-items-center">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center md:text-left space-y-4"
       >
         <h2 className="text-accent font-bold tracking-widest uppercase text-xs">Connection</h2>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">Let's build the <br/> next big thing.</h1>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">Let's build the next big thing.</h1>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 gap-12 place-items-center">
         
         {/* Left Side: Direct Contact & Socials */}
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          className="space-y-8"
+          className="space-y-8 md:min-w-[60vw]"
         >
           <p className="text-slate-400 text-lg leading-relaxed">
             Currently looking for collaborations on AI projects.
@@ -52,7 +56,8 @@ const Contact = () => {
                   <p className="text-white font-medium">{email}</p>
                 </div>
               </div>
-              <div className="text-slate-500 group-hover:text-white transition-colors">
+              <div className="text-slate-500 group-hover:text-white transition-colors gap-2 flex">
+                <a href='mailto:aditya125siingh@gmail.com'><Send size={18} /></a>
                 {copied ? <Check size={18} className="text-green-500" /> : <Copy size={18} />}
               </div>
             </div>
@@ -70,7 +75,7 @@ const Contact = () => {
         </motion.div>
 
         {/* Right Side: Fast Message Form */}
-        <motion.form 
+        {/* <motion.form 
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
@@ -104,9 +109,9 @@ const Contact = () => {
           </div>
 
           <button className="w-full py-4 bg-white text-black font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-200 transition-all active:scale-95">
-            Send Message <Send size={18} />
+            <a href='mailto:aditya125siingh@gmail.com'>Send Message <Send size={18} /></a>
           </button>
-        </motion.form>
+        </motion.form> */}
       </div>
     </div>
   );
