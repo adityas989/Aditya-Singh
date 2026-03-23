@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import profile from '../assets/hero.png';
+import profile from '../assets/profileimage.jpeg';
 import { ChevronLeft, ChevronRight, Terminal } from 'lucide-react';
 
 const About = () => {
