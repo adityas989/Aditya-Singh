@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://aditya-singh-ai.vercel.app/sitemap.xml
